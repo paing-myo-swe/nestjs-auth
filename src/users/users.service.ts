@@ -19,4 +19,8 @@ export class UsersService {
   async findByUserName(username: string): Promise<User | undefined> {
     return users.find((user) => user.username === username);
   }
+
+  async findById(userId: number): Promise<User | undefined> {
+    return users.find((user) => user.userId === userId);
+  }
 }

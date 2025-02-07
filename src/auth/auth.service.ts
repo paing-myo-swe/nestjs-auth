@@ -44,4 +44,15 @@ export class AuthService {
       username: user.username,
     };
   }
+
+  async getUserInfo(userId: number): Promise<SignData> {
+    const user = await this.usersService.findById(userId);
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+    return {
+      userId: user.userId,
+      username: user.username,
+    };
+  }
 }
